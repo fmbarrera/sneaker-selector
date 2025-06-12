@@ -1,11 +1,52 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: #000000;
     margin: 0;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.emoji-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.floating-emoji {
+    position: fixed;
+    font-size: 2.5rem;
+    animation: floatOut 2s ease-out forwards;
+    opacity: 0;
+    filter: drop-shadow(0 0 10px rgba(255, 100, 0, 0.5));
+    will-change: transform;
+}
+
+@keyframes floatOut {
+    0% {
+        transform: translate(0, 0) scale(0.2) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(
+            calc(var(--end-x) - var(--start-x)), 
+            calc(var(--end-y) - var(--start-y))
+        ) scale(var(--scale)) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 .container {
@@ -13,7 +54,7 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-    max-width: 800px;
+    max-width: 600px;
     width: 90%;
     margin: 2rem auto;
 }
@@ -84,13 +125,17 @@ h1 {
 }
 
 .sneaker-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 293px; /* Instagram-like square size */
+    height: 293px;
+    object-fit: cover; /* This ensures the image covers the area without stretching */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-top: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease-in;
+    background-color: #ffffff;
+    padding: 4px;
+    border: 1px solid #dbdbdb;
 }
 
 .sneaker-image[src] {
