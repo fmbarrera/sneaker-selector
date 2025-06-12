@@ -13,8 +13,9 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-    max-width: 600px;
+    max-width: 800px;
     width: 90%;
+    margin: 2rem auto;
 }
 
 h1 {
@@ -80,4 +81,18 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.sneaker-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.sneaker-image[src] {
+    opacity: 1;
 }
