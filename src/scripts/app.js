@@ -4,19 +4,19 @@ function getRandomSneaker() {
             name: "Nike Jordan 1s",
             image: "assets/Jordan 1 UNC Toe.jpeg",
             bgGradient: "linear-gradient(135deg, #7ba3e8 0%, #4169e1 100%)",
-            emojis: Array(20).fill("🔥") // 20 fire emojis
+            emojis: Array(15).fill("🔥").concat(Array(5).fill("PATRICK")).concat(Array(5).fill("👑")) // Mix of fire, name, and crown
         },
         {
             name: "Air Max 97",
             image: "assets/CDG-nike-air-max-97.jpg",
             bgGradient: "linear-gradient(135deg, #6b6b6b 0%, #1a1a1a 100%)",
-            emojis: Array(20).fill("🔥") // 20 fire emojis
+            emojis: Array(15).fill("🔥").concat(Array(5).fill("PATRICK")).concat(Array(5).fill("👑"))
         },
         {
             name: "Jordan 4s",
             image: "assets/Jordan 4 Wet Cement.jpeg",
             bgGradient: "linear-gradient(135deg, #8c8c8c 0%, #404040 100%)",
-            emojis: Array(20).fill("🔥") // 20 fire emojis
+            emojis: Array(15).fill("🔥").concat(Array(5).fill("PATRICK")).concat(Array(5).fill("👑"))
         }
     ];
     const randomIndex = Math.floor(Math.random() * sneakers.length);
