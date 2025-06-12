@@ -1,0 +1,20 @@
+{
+  "name": "sneaker-selector-web",
+  "version": "1.0.0",
+  "description": "A web application that randomly selects a sneaker from a list of owned sneakers.",
+  "main": "src/scripts/app.js",
+  "scripts": {
+    "start": "live-server src"
+  },
+  "keywords": [
+    "sneakers",
+    "random",
+    "selector",
+    "web"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
