@@ -1,25 +1,33 @@
+let lastSneakerIndex = -1;
+
 function getRandomSneaker() {
     const sneakers = [
         {
             name: "Nike Jordan 1s",
             image: "assets/Jordan 1 UNC Toe.jpeg",
             bgGradient: "linear-gradient(135deg, #7ba3e8 0%, #4169e1 100%)",
-            emojis: Array(15).fill("🔥").concat(Array(5).fill("PATRICK")).concat(Array(5).fill("👑")) // Mix of fire, name, and crown
+            emojis: Array(25).fill("🔥").concat(Array(5).fill("SNEAKER HEAD")).concat(Array(10).fill("👑"))
         },
         {
             name: "Air Max 97",
             image: "assets/CDG-nike-air-max-97.jpg",
             bgGradient: "linear-gradient(135deg, #6b6b6b 0%, #1a1a1a 100%)",
-            emojis: Array(15).fill("🔥").concat(Array(5).fill("PATRICK")).concat(Array(5).fill("👑"))
+            emojis: Array(25).fill("🔥").concat(Array(5).fill("SNEAKER HEAD")).concat(Array(10).fill("👑"))
         },
         {
             name: "Jordan 4s",
             image: "assets/Jordan 4 Wet Cement.jpeg",
             bgGradient: "linear-gradient(135deg, #8c8c8c 0%, #404040 100%)",
-            emojis: Array(15).fill("🔥").concat(Array(5).fill("PATRICK")).concat(Array(5).fill("👑"))
+            emojis: Array(25).fill("🔥").concat(Array(5).fill("SNEAKER HEAD")).concat(Array(10).fill("👑"))
         }
     ];
-    const randomIndex = Math.floor(Math.random() * sneakers.length);
+
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * sneakers.length);
+    } while (randomIndex === lastSneakerIndex && sneakers.length > 1);
+    
+    lastSneakerIndex = randomIndex;
     return sneakers[randomIndex];
 }
 
@@ -55,6 +63,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = document.querySelector('.emoji-container');
         container.innerHTML = '';
         
+        // Create dispersed fire emojis
+        for (let i = 0; i < 15; i++) {
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+            const fireEmoji = createEmojiElement("🔥", randomX, randomY);
+            container.appendChild(fireEmoji);
+            setTimeout(() => fireEmoji.remove(), 2000 + Math.random() * 1000);
+        }
+        
+        // Animate main emojis from button
         emojis.forEach(emoji => {
             const emojiElement = createEmojiElement(emoji, centerX, centerY);
             container.appendChild(emojiElement);
