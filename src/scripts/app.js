@@ -11,7 +11,7 @@ function getRandomSneaker() {
         {
             name: "Air Max 97",
             image: "assets/CDG-nike-air-max-97.jpg",
-            bgGradient: "linear-gradient(135deg, #6b6b6b 0%, #1a1a1a 100%)",
+            bgGradient: "linear-gradient(135deg,rgb(211, 229, 247) 0%,rgb(139, 183, 208) 100%)",
             emojis: Array(25).fill("🔥").concat(Array(5).fill("SNEAKER HEAD")).concat(Array(10).fill("👑"))
         },
         {
